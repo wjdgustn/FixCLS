@@ -1,13 +1,10 @@
 using System.Collections.Generic;
 using System.Diagnostics;
-using System.Reflection;
 using System.Text.RegularExpressions;
-using ADOFAI;
 using GDMiniJSON;
 using HarmonyLib;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using Debug = UnityEngine.Debug;
 
 namespace FixCLS.MainPatch {
     #if DEBUG
@@ -97,10 +94,17 @@ namespace FixCLS.MainPatch {
     
             AllowPass = true;
 
+            if (json == null) {
+                __result = null;
+                return false;
+            }
+
             // remove actions
             var result = Regex.Replace(json, @"(?<=\t\[).+(?=\])", "", RegexOptions.Singleline);
             // remove pathData
             result = Regex.Replace(result, "(?<=\"pathData\": \").+(?=\")", "");
+            // remove angleData
+            result = Regex.Replace(result, "(?<=\"angleData\": \\[).+(?=\\])", "");
             __result = Json.Deserialize(result);
 
             return false;
