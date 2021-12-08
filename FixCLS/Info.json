@@ -2,7 +2,7 @@
   "Id": "FixCLS",
   "DisplayName": "FixCLS",
   "Author": "HYONSU",
-  "Version": "0.0.1",
+  "Version": "0.0.2",
   "AssemblyName": "FixCLS.dll",
   "EntryMethod": "FixCLS.Main.Load",
   "Repository": ""
