@@ -25,21 +25,21 @@ namespace FixCLS.MainPatch {
     }
     #endif
 
-    [HarmonyPatch(typeof(scnCLS), "MakeFloor")]
-
-    internal static class GetFloorTIme {
-        private static Stopwatch Timer = new Stopwatch();
-
-        private static void Prefix() {
-            Timer.Reset();
-            Timer.Start();
-        }
-
-        private static void Postfix() {
-            Timer.Stop();
-            Main.Mod.Logger.Log($"MakeFloor took {Timer.ElapsedMilliseconds}ms");
-        }
-    }
+    // [HarmonyPatch(typeof(scnCLS), "MakeFloor")]
+    //
+    // internal static class GetFloorTIme {
+    //     private static Stopwatch Timer = new Stopwatch();
+    //
+    //     private static void Prefix() {
+    //         Timer.Reset();
+    //         Timer.Start();
+    //     }
+    //
+    //     private static void Postfix() {
+    //         Timer.Stop();
+    //         Main.Mod.Logger.Log($"MakeFloor took {Timer.ElapsedMilliseconds}ms");
+    //     }
+    // }
     
     [HarmonyPatch(typeof(scnCLS), "ScanLevels")]
 
