@@ -1,10 +1,8 @@
-﻿using System.CodeDom;
-using System.Reflection;
-using HarmonyLib;
+﻿using System.Reflection;
 using FixCLS.MainPatch;
 using GDMiniJSON;
+using HarmonyLib;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityModManagerNet;
 
 namespace FixCLS {

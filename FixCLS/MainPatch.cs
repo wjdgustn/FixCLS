@@ -12,9 +12,9 @@ namespace FixCLS.MainPatch {
         public static string Content = "Wa sans!";
         
         void OnGUI() {
-            if (RDC.debug) Content = SceneManager.GetActiveScene().name;
-            else Content = "";
-            
+            // if (RDC.debug) Content = SceneManager.GetActiveScene().name;
+            // else Content = "";
+
             GUIStyle style = new GUIStyle();
             style.fontSize = (int) 50.0f;
             style.font = RDString.GetFontDataForLanguage(RDString.language).font;
@@ -67,10 +67,10 @@ namespace FixCLS.MainPatch {
             while (lastSongsLoaded.Count > 0) {
                 string key = lastSongsLoaded[0];
                 lastSongsLoaded.RemoveAt(0);
-                if (__instance.audioManager.audioLib.ContainsKey(key))
+                if (ADOBase.audioManager.audioLib.ContainsKey(key))
                 {
-                    AudioClip audioClip = __instance.audioManager.audioLib[key];
-                    __instance.audioManager.audioLib.Remove(key);
+                    AudioClip audioClip = ADOBase.audioManager.audioLib[key];
+                    ADOBase.audioManager.audioLib.Remove(key);
                     audioClip.UnloadAudioData();
                     Object.DestroyImmediate(audioClip, true);
                     Resources.UnloadAsset(audioClip);

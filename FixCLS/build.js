@@ -12,7 +12,7 @@ setImmediate(async () => {
 
     rimraf.sync('Release')
 
-    cp.execSync(`dotnet "C:\\Users\\Computer\\.dotnet\\sdk\\5.0.402\\MSBuild.dll" /p:Configuration=${args.release ? 'Release' : 'Debug'}`)
+    cp.execSync(`chcp 65001 && dotnet "C:\\Users\\Computer\\.dotnet\\sdk\\5.0.402\\MSBuild.dll" /p:Configuration=${args.release ? 'Release' : 'Debug'}`)
 
     fs.mkdirSync('Release')
 
